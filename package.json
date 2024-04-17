@@ -5,7 +5,8 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "netlify deploy --prod"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,8 @@
     "express": "^4.19.2",
     "firebase": "^10.8.1",
     "morgan": "^1.10.0",
+    "netlify-cli": "^17.22.1",
+    "netlify-lambda": "^2.0.16",
     "serverless-http": "^3.2.0",
     "winston": "^3.13.0"
   },
