@@ -53,7 +53,9 @@ const getGuestList = async (req, res) => {
   }
 }
 export const router = express.Router();
-
+router.get("/", (req, res) => {
+  res.send("App is running..");
+});
 router.get('/client/:clientId', getClientData);
 router.get('/guest/:clientId/:guestId', getClientDataMW, getGuestData);
 router.post('/guest-invitation', getClientDataMW, saveNewGuest);
