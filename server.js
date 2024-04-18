@@ -5,9 +5,9 @@ import sgMail from '@sendgrid/mail';
 import dotenv from 'dotenv';
 import { httpLogger } from './utills/httpLogger.js';
 import { router } from './router.js';
-import serverless from "serverless-http";
+// import serverless from "serverless-http";
 
-const app = express();
+export const app = express();
 const port = 3001;
 
 // Middleware
@@ -25,4 +25,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY.trim());
 app.use(router);
 
 // Start the server
-export const handler = serverless(app);
+// export const handler = serverless(app);
+app.listen(port, () => {
+  console.log('server started on port ', port)
+})
+
