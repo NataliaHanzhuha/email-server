@@ -7,7 +7,7 @@ import { httpLogger } from './utills/httpLogger.js';
 import { router } from './router.js';
 // import serverless from "serverless-http";
 
-export const app = express();
+const app = express();
 const port = 3001;
 
 // Middleware
@@ -27,6 +27,7 @@ app.use(router);
 // Start the server
 // export const handler = serverless(app);
 app.listen(port, () => {
-  console.log('server started on port ', port)
-})
+  console.log('server started on port ', port);
+});
 
+export default app;
