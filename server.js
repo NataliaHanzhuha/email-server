@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import sgMail from '@sendgrid/mail';
 import dotenv from 'dotenv';
-import { httpLogger } from './utills/httpLogger.js';
+// import { httpLogger } from './utills/httpLogger.js';
 import { router } from './router.js';
 // import serverless from "serverless-http";
 
@@ -15,9 +15,9 @@ dotenv.config();
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-if (process.env.NODE_ENV === 'production') {
-  app.use(httpLogger);
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(httpLogger);
+// }
 
 // Route for sending emails
 sgMail.setApiKey(process.env.SENDGRID_API_KEY.trim());

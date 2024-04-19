@@ -1,6 +1,7 @@
 import sgMail from '@sendgrid/mail';
 import fs from 'fs';
 import path from 'path';
+import { deleteExcelFile } from '../utills/excel-processing.js';
 
 export const sendManyEmails = async (req, res, emails, templateId) => {
   const msg = {
@@ -93,6 +94,7 @@ export const sendEmailWithGuestsList = (res, client, link1) => {
     .then(() => {
       console.log('Email sent');
       res.send('Email sent');
+      deleteExcelFile(link1);
     })
     .catch((error) => {
       console.error(JSON.stringify(error));

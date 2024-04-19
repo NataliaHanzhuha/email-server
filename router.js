@@ -44,10 +44,8 @@ const getGuestList = async (req, res) => {
 
   if (client) {
     const guests = await getGuestsList(client.emailDBName);
-    excelDoc(guests, client).then((filePath) => {
-      sendEmailWithGuestsList(res, client, filePath);
-    });
-
+    const filePath = await excelDoc(guests, client);
+    await sendEmailWithGuestsList(res, client, filePath);
   } else {
     res.status(400).json('Client does not found');
   }
